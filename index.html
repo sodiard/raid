@@ -29,6 +29,7 @@
         if (screen.width > 600) {
             $("#street-view-charter").attr("width", 600);
             $("#street-view-brownsea").attr("width", 600);
+            $("#kenya").attr("width", 600);
         }
     })
 
@@ -521,7 +522,7 @@
           </h2>
           <!--<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/roca3.png" alt="">-->
           <p class="mb-3">
-            Muy Bien, <span class="nombre-caminante"></span>.   Como ya te habrás dado cuenta,
+            Muy Bien, <span class="nombre-caminante"></span>.   Como ya te habrás dado cuenta,<br/>
             recorrimos el Colegio de Charterhouse, <br/>
             la India, Sudáfrica y la Isla de Brownsea.<br/>
             Todos estos lugares fueron significativos <br/>
@@ -546,7 +547,7 @@
             Cómo se llamó su último hogar? La respuesta la vas a encontrar <br/>
             si prestas atención a este video.
           </p>
-          <iframe width="695" height="391" src="https://www.youtube.com/embed/eh0R1H071AI"
+          <iframe id="kenya" height="391" src="https://www.youtube.com/embed/eh0R1H071AI"
                   frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen></iframe>
           <form onsubmit="return validateHogar(event)" class="p-5">
@@ -603,41 +604,50 @@
         <div class="col-xl-9 mx-auto">
           <div class="cta-inner text-center rounded">
             <p class="mb-0">
-              Teobaldo es un reconocido profesor de filosofía en la Universidad Nacional. Un día, delante de sus alumnos, sin decir palabras, saco de debajo de su escritorio un frasco grande de boca ancha. Lo colocó sobre la mesa, junto a una bandeja con piedras del tamaño de un puño y preguntó:
-
-              - ¿Cuántas piedras piensan que caben en el frasco?
-
-              Después de que los asistentes hicieron sus conjeturas, comenzaron a meter piedras hasta que llenó el frasco. Luego preguntó:
-
-              -¿Está lleno?
-
-              Todo el mundo lo miró y asintió. Entonces, sacó de debajo de la mesa un recipiente con piedras más pequeñas. Metió parte de ellos en el frasco y lo agitó. Las piedritas entraron por los espacios que dejaban las piedras grandes. El filósofo sonrió con ironía y repitió:
-
-              - ¿ Está lleno?
-
-              Esta vez, los oyentes dudaron:
-
-              - Tal vez, no.
-
-              - ¡Bien!
-
-              En ese momento, tomó una caja arena y comenzó a volcarla en el frasco. La arena se filtraba entre los pequeños espacios que dejaban las piedras y las piedras pequeñas, hasta colmar el envase.
-              - ¿Está lleno? preguntó nuevamente.
-
-              ¡Si! – respondieron unánimemente los estudiantes.
-
-              Entonces Teobaldo, frente a la mirada sorprendida de sus alumnos, tomo una jarra de agua y vertió su contenido dentro del frasco que, efectivamente, quedó lleno.
-
-              En esta ocasión, los estudiantes, sonrieron. Cuando la risa se apagaba, el profesor preguntó:
-
-              -¿Qué hemos demostrado?
-
-              Un alumno respondió:
-
-              -Que no importa lo llena que esté tu agenda, si lo intentas, siempre puedes hacer que quepan más cosas.
-
-              ¡No…!- concluyó el filósofo-.Este frasco representa la vida. Lo que esta lección nos enseña es que hay que colocar las piedras grandes e importantes primero, el resto encontrará su lugar...
+            <p> Teobaldo es un reconocido profesor de filosofía en la Universidad Nacional. Un día, delante de sus
+              alumnos, sin decir palabras, saco de debajo de su escritorio un frasco grande de boca ancha. Lo colocó
+              sobre la mesa, junto a una bandeja con piedras del tamaño de un puño y preguntó:
             </p>
+            <p> - ¿Cuántas piedras piensan que caben en el frasco?
+            </p>
+            <p> Después de que los asistentes hicieron sus conjeturas, comenzaron a meter piedras hasta que llenó el
+              frasco. Luego preguntó:
+            </p>
+            <p> -¿Está lleno?
+            </p>
+            <p> Todo el mundo lo miró y asintió. Entonces, sacó de debajo de la mesa un recipiente con piedras más
+              pequeñas. Metió parte de ellos en el frasco y lo agitó. Las piedritas entraron por los espacios que
+              dejaban las piedras grandes. El filósofo sonrió con ironía y repitió:
+            </p>
+            <p> - ¿ Está lleno?
+            </p>
+            <p> Esta vez, los oyentes dudaron:
+            </p>
+            <p> - Tal vez, no.
+            </p>
+            <p> - ¡Bien!
+            </p>
+            <p> En ese momento, tomó una caja arena y comenzó a volcarla en el frasco. La arena se filtraba entre los
+              pequeños espacios que dejaban las piedras y las piedras pequeñas, hasta colmar el envase.
+            </p>
+            <p> - ¿Está lleno? preguntó nuevamente.
+            </p>
+            <p> ¡Si! – respondieron unánimemente los estudiantes.
+            </p>
+            <p> Entonces Teobaldo, frente a la mirada sorprendida de sus alumnos, tomo una jarra de agua y vertió su
+              contenido dentro del frasco que, efectivamente, quedó lleno.
+            </p>
+            <p> En esta ocasión, los estudiantes, sonrieron. Cuando la risa se apagaba, el profesor preguntó:
+            </p>
+            <p> -¿Qué hemos demostrado?
+            </p>
+            <p> Un alumno respondió:
+            </p>
+            <p> -Que no importa lo llena que esté tu agenda, si lo intentas, siempre puedes hacer que quepan más cosas.
+            </p>
+            <p> ¡No…!- concluyó el filósofo-.Este frasco representa la vida. Lo que esta lección nos enseña es que hay
+              que colocar las piedras grandes e importantes primero, el resto encontrará su lugar...
+            </p>            </p>
             <div class="intro-button mx-auto">
               <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-21')">Seguir</a>
             </div>
@@ -656,18 +666,26 @@
               <span class="section-heading-lower">REFLEXIÓN PERSONAL</span>
             </h2>
             <p class="mb-0">
-              ¿Cuáles son las piedras grandes en nuestra vida?
-
-              Son las cosas verdaderamente importantes aquellas que, si todo lo demás se perdiera y sólo éstas quedaran, nuestra vida aún estaría llena, aún tendría sentido. Prestemos atención a las cosas que son cruciales; establezcamos nuestras prioridades, lo demás se acomodará solo.
-
-              Si gastamos todo nuestro tiempo y energía en cosas que no nos llenan, nunca tendremos lugar para las cosas realmente importantes.
-
-              En esta historia, todo se acomoda naturalmente. En la vida no siempre podemos o queremos elegir con criterios tan claros. Acomodar, ajustar, modificar, volver a sacar, reubicar... ¿no serán procedimientos necesarios en este rompecabezas que es vivir?
-
-              Cada una de las partes tiene su lugar en un momento determinado y forma parte de una circunstancia concreta. Nunca nuestro frasco estará totalmente lleno, siempre habrá ocasión para desechar y volver a construir, de hacer lugar para algo o alguien más, ésta es parte, nuestra tarea de ser humanos.
+            <p> ¿Cuáles son las piedras grandes en nuestra vida?
             </p>
+            <p> Son las cosas verdaderamente importantes aquellas que, si todo lo demás se perdiera y sólo éstas
+              quedaran, nuestra vida aún estaría llena, aún tendría sentido. Prestemos atención a las cosas que son
+              cruciales; establezcamos nuestras prioridades, lo demás se acomodará solo.
+            </p>
+            <p> Si gastamos todo nuestro tiempo y energía en cosas que no nos llenan, nunca tendremos lugar para las
+              cosas realmente importantes.
+            </p>
+            <p> En esta historia, todo se acomoda naturalmente. En la vida no siempre podemos o queremos elegir con
+              criterios tan claros. Acomodar, ajustar, modificar, volver a sacar, reubicar... ¿no serán procedimientos
+              necesarios en este rompecabezas que es vivir?
+            </p>
+            <p> Cada una de las partes tiene su lugar en un momento determinado y forma parte de una circunstancia
+              concreta. Nunca nuestro frasco estará totalmente lleno, siempre habrá ocasión para desechar y volver a
+              construir, de hacer lugar para algo o alguien más, ésta es parte, nuestra tarea de ser humanos.
+            </p>            </p>
             <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/paisaje.jpeg" alt="">
             <div class="intro-button mx-auto">
+              <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-20')">Volver</a>
               <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-22')">Seguir</a>
             </div>
           </div>
@@ -685,18 +703,22 @@
               <span class="section-heading-lower">PARA COMPARTIR</span>
             </h2>
             <p class="mb-0">
-              1) ¿Qué representan, en el frasco de la vida, las piedras, las piedras pequeñas, la arena y el agua? Realizar una lista propia.
-
-              2) ¿Qué parte ocupa en nuestra vida cada material de esa lista?
-
-              3) ¿Qué criterios o valores tomamos para darle a cada cosa su lugar? ¿Importancia, utilidad, urgencia, tiempo? ¿Puede haber otros criterios?
-
-              4) ¿Qué quisiéramos que ocupe preferentemente todo nuestro frasco-vida? ¿Qué haríamos para lograrlo?
-
-              5) En este momento de nuestras vidas. ¿Es preciso reubicar o quitar algo, para dar lugar a lo verdaderamente importante? ¿Cómo lo haríamos?
+            <p> 1) ¿Qué representan, en el frasco de la vida, las piedras, las piedras pequeñas, la arena y el agua?
+              Realizar una lista propia.
             </p>
+            <p> 2) ¿Qué parte ocupa en nuestra vida cada material de esa lista?
+            </p>
+            <p> 3) ¿Qué criterios o valores tomamos para darle a cada cosa su lugar? ¿Importancia, utilidad, urgencia,
+              tiempo? ¿Puede haber otros criterios?
+            </p>
+            <p> 4) ¿Qué quisiéramos que ocupe preferentemente todo nuestro frasco-vida? ¿Qué haríamos para lograrlo?
+            </p>
+            <p> 5) En este momento de nuestras vidas. ¿Es preciso reubicar o quitar algo, para dar lugar a lo
+              verdaderamente importante? ¿Cómo lo haríamos?
+            </p>            </p>
             <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/puente.jpeg" alt="">
             <div class="intro-button mx-auto">
+              <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-21')">Volver</a>
               <a class="btn btn-primary btn-xl" href="#" onclick="alert('Esperamos que te haya gustado!!')">Terminar</a>
             </div>
           </div>

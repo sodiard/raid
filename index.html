@@ -24,8 +24,12 @@
   <script>
     var nombre= "Caminante"
     $(document).ready(function () {
-        $(".page-section").hide()
-        $(".page-section").first().show()
+        $(".page-section").hide();
+        $(".page-section").first().show();
+        if (screen.width > 600) {
+            $("#street-view-charter").attr("width", 600);
+            $("#street-view-brownsea").attr("width", 600);
+        }
     })
 
     function goto(id) {
@@ -59,12 +63,11 @@
             }
         }
         return false;
-
     }
 
     function validateEstatua() {
         if ($("#estatua").val().length < 1){
-            alert("escribí en qué país pensás que está la estatua, avivate")
+            alert("escribí en qué país pensás que está la estatua")
         } else {
             if ($("#estatua").val().trim().toUpperCase().indexOf("INDIA") > -1) {
                 console.log("contains INDIA");
@@ -75,6 +78,85 @@
         }
         return false;
 
+    }
+
+    function validateLaberinto() {
+        if ($("#laberinto").val().length < 1){
+            alert("escribí el número que obtuviste")
+        } else {
+            lunas = $("#laberinto").val()
+            if (lunas == 1762) {
+                goto("slide-8")
+            } else {
+                goto("slide-9")
+            }
+        }
+        return false;
+    }
+
+    function validateMastiles() {
+        if ($("#mastiles").val().length < 1){
+            alert("escribí el número de banderas que encontraste izadas en el mastil")
+        } else {
+            mastiles = $("#mastiles").val()
+            if (mastiles == 4) {
+                goto("slide-13")
+            } else {
+                goto("slide-14")
+            }
+        }
+        return false;
+    }
+
+
+    function validatePatrulla() {
+        if ($("#patrulla").val().length < 1){
+            alert("escribí cuál es el nomnbre de la cuarta patrulla")
+        } else {
+            if ($("#patrulla").val().trim().toUpperCase().indexOf("CHORLITO") > -1) {
+                console.log("contains CHORLITOS");
+                goto("slide-13");
+            } else {
+                if (failedChorlits < 2) {
+                    alert('No... esa no es la respuesta correcta, intentalo de nuevo');
+                } else {
+                    alert('a ver... empieza con CHOR ... y termina con LITOS');
+                }
+                failedChorlits++;
+            }
+        }
+        return false;
+
+    }
+
+    function validateHogar() {
+        if ($("#hogar").val().length < 1){
+            alert("escribí cual fue el nombre del último hogar de BO")
+        } else {
+            if ($("#hogar").val().trim().toUpperCase().indexOf("PAXTU") > -1) {
+                console.log("contains paxtu");
+                goto("slide-17");
+            } else {
+                alert('No '+nombre+', esa no es la respuesta correcta, intentalo de nuevo');
+            }
+        }
+        return false;
+
+    }
+
+
+    var failedChorlits = 0;
+    var failedTrips = 0;
+
+    function failTrip(){
+        if (failedTrips == 0){ alert('No! fijate bien')}
+        else if (failedTrips == 1){ alert('Tampoco... Yo que vos usaría Google Maps')}
+        else if (failedTrips == 2){ alert('Bue... vas a probar con todos?')}
+        else if (failedTrips == 3){ alert('No es tan dificil... vas a google maps, pones ir desde Keetmanshoop hasta Maseru, y listo!')}
+        else if (failedTrips == 4){ alert('bueno, a esta altura ya es mas dificil errar que embocarle')}
+        else if (failedTrips == 5){ alert('Bueno, ya fue... la respuesta es Sudafrica')}
+        else { alert('me morí')}
+        failedTrips++
     }
 
   </script>
@@ -168,7 +250,7 @@
             Observá todos los detalles, acordate que podés poner pantalla completa
           </p>
           <!--<iframe src="https://www.google.com/maps/embed?pb=!4v1590457539892!6m8!1m7!1s8VHjg4Uz-vnNgzrv2CHt5g!2m2!1d51.19702315990217!2d-0.6211347654392516!3f246.59773301748606!4f-5.174303435715359!5f0.7820865974627469" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>-->
-          <iframe src="https://www.google.com/maps/embed?pb=!4v1590457539892!6m8!1m7!1s8VHjg4Uz-vnNgzrv2CHt5g!2m2!1d51.19702315990217!2d-0.6211347654392516!3f246.59773301748606!4f-5.174303435715359!5f0.7820865974627469"
+          <iframe id="street-view-charter" src="https://www.google.com/maps/embed?pb=!4v1590457539892!6m8!1m7!1s8VHjg4Uz-vnNgzrv2CHt5g!2m2!1d51.19702315990217!2d-0.6211347654392516!3f246.59773301748606!4f-5.174303435715359!5f0.7820865974627469"
                   height="450"
                   frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
           <form action="#" onsubmit="return validateLunas()" class="p-5">
@@ -209,7 +291,7 @@
               <span class="section-heading-lower">Le erraste!</span>
             </h2>
             <p >No, esa no es la respuesta, observá bien!.</p>
-            <p>Una pista adicional: en el patio hay más de un escudo...</p>
+            <p>Una pista adicional: en las paredes hay más de un escudo...</p>
             <div class="intro-button mx-auto mt-1">
               <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-2')">Ok!</a>
             </div>
@@ -228,7 +310,7 @@
           <p class="mb-3">  Para encontrar la próxima roca, nos vamos a trasladar al otro lado del mundo... Podés deducir a qué país corresponde la imagen?
           </p>
           <form onsubmit="return validateEstatua(event)" class="p-5">
-            <input type="text" class="form-control" placeholder="Que país es" name="nombre" id="estatua"/>
+            <input type="text" class="form-control" placeholder="¿Que país es?" name="nombre" id="estatua"/>
             <div class="intro-button mx-auto mt-1">
               <a class="btn btn-primary btn-xl" onclick="validateEstatua()">Ok</a>
             </div>
@@ -238,6 +320,390 @@
     </div>
   </section>
 
+
+  <section class="page-section clearfix" id="slide-6">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/mapa-túneles.jpg" alt="">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <p class="mb-3">  Muy bien, para sacar la segunda roca de la India, tenés que resolver el laberinto.
+
+            Pero no de cualquier manera... Tenés que recorrerlo de manera de llegar a la salida pasando por el menor número posible.
+
+            Es decir, si en tu recorrido pasaste por los numeros 5-4-1-3-3-2 , tu número final va a ser el 541.332.
+
+            ¿CUAL SERÍA EL MENOR NUMERO POR EL CUAL PODÉS SALIR DEL LABERINTO?   </p>
+          <form onsubmit="return validateLaberinto(event)" class="p-5">
+            <input type="number" class="form-control" placeholder="???" name="nombre" id="laberinto"/>
+            <div class="intro-button mx-auto mt-1">
+              <a class="btn btn-primary btn-xl" onclick="validateLaberinto()">Ok</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section clearfix" id="slide-7">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/taj%20majal.jpg" alt="">
+          <div class="cta-inner text-center rounded">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-lower">Nop!</span>
+            </h2>
+            <p >No, le erraste! Te vamos a dar otra pista...</p>
+            <p>Esta imagen también corresponde al mismo país.</p>
+            <div class="intro-button mx-auto mt-1">
+              <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-5')">Ok!</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="page-section clearfix" id="slide-8">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/roca1.jpg" alt="">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-lower">Excelente!</span>
+          </h2>
+          <p class="mb-3">Encontraste la segunda Roca... andá recordando los lugares por los que pasaste
+          </p>
+          <div class="intro-button mx-auto">
+            <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-10')">Seguir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section clearfix" id="slide-9">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="cta-inner text-center rounded">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-lower">No!</span>
+            </h2>
+            <p >Noooo , le erraste! </p>
+            <p>Una pista... es un número de 4 cifras y empieza con 1</p>
+            <div class="intro-button mx-auto mt-1">
+              <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-6')">Ok!</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section clearfix" id="slide-10">
+    <div class="container">
+      <div class="intro">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <p class="mb-3">
+            <span>Ok, vamos a cambiar de continente... en qué país estarías si estuvieras a mitad de camino entre <a href="https://es.wikipedia.org/wiki/Keetmanshoop" rel="noopener noreferrer" target="_blank">Keetmanshoop</a> y <a href="https://es.wikipedia.org/wiki/Maseru" rel="noopener noreferrer" target="_blank">Maseru</a>?</span>
+          </p>
+          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/leon.jpg" alt="">
+          <div class="intro-button mx-auto">
+            <a class="btn btn-primary btn-xl col-xs-1 col-md-4 mb-1" href="#" onclick="failTrip()">Congo</a>
+            <a class="btn btn-primary btn-xl col-xs-1 col-md-4 mb-1" href="#" onclick="failTrip()">Namibia</a>
+            <a class="btn btn-primary btn-xl col-xs-1 col-md-4 mb-1" href="#" onclick="failTrip()">Lesoto</a>
+            <a class="btn btn-primary btn-xl col-xs-1 col-md-4 mb-1" href="#" onclick="failTrip()">Botswana</a>
+            <a class="btn btn-primary btn-xl col-xs-1 col-md-4 mb-1" href="#" onclick="failTrip()">Sudán</a>
+            <a class="btn btn-primary btn-xl col-xs-1 col-md-4 mb-1" href="#" onclick="failTrip()">Kenia</a>
+            <a class="btn btn-primary btn-xl col-xs-1 col-md-4 mb-1" href="#" onclick="failTrip()">Malawi</a>
+            <a class="btn btn-primary btn-xl col-xs-1 col-md-4 mb-1" href="#" onclick="goto('slide-11')">Sudáfrica</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section clearfix" id="slide-11">
+    <div class="container">
+      <div class="intro">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-lower">Perfecto!</span>
+          </h2>
+          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/roca2.jpg" alt="">
+          <p class="mb-3">Acá tenes la tercera Roca. No te olvides de guardarlas!
+          </p>
+          <div class="intro-button mx-auto">
+            <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-12')">Seguir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section clearfix" id="slide-12">
+    <div class="container">
+      <div class="intro">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <p class="mb-3">
+            Seguimos viajando... En este caso a una Isla muy especial.<br/>
+            Así que vamos a volver a trasladarnos virtualmente.<br/>
+            <b>Primero que nada, tenés que encontrar cuántas banderas hay izadas en el mastil.</b><br/>
+            Para eso, tenes que IR A LA ISLA, y dirigirte por el camino hacia el OESTE
+          </p>
+          <iframe id="street-view-brownsea"
+                  src="https://www.google.com/maps/embed?pb=!4v1590541272592!6m8!1m7!1s6nFpOX_7i8wQJHVVTGCQiQ!2m2!1d50.6886338742671!2d-1.978004768613118!3f223.94518381926815!4f-8.049945090437944!5f0.7820865974627469"
+                  height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          <form onsubmit="return validateMastiles(event)" class="p-5">
+            <input type="number" class="form-control" placeholder="???" name="mastiles" id="mastiles"/>
+            <div class="intro-button mx-auto mt-1">
+              <a class="btn btn-primary btn-xl" onclick="validateMastiles()">Ok</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section clearfix" id="slide-13">
+    <div class="container">
+      <div class="intro">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-lower">Perfecto!</span>
+          </h2>
+          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/roca3.png" alt="">
+          <p class="mb-3">
+            Bien!!! Acabas de conseguir la cuarta Roca, ya falta poco!
+          </p>
+          <div class="intro-button mx-auto">
+            <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-15')">Seguir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="page-section clearfix" id="slide-14">
+    <div class="container">
+      <div class="intro">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <p class="mb-3">
+            No, <span class="nombre-caminante"></span>, esa no es la respuesta correcta<br/>
+            Vamos con una pregunta más fácil: La isla a la que viajaste, es la Isla de Brownsea, <br/>
+            donde BP organizó lo que fue considerado el PRIMER CAMPAMENTO SCOUT. En ese campamento, <br/>
+            hubo 4 patrullas: Toros, Lobos, Cuervos y <b>cuál mas?</b>
+          </p>
+
+          <form onsubmit="return validatePatrulla(event)" class="p-5">
+            <input type="text" class="form-control" placeholder="cuál era la cuarta patrulla?" name="patrulla" id="patrulla"/>
+            <div class="intro-button mx-auto mt-1">
+              <a class="btn btn-primary btn-xl" onclick="validatePatrulla()">Ok</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section clearfix" id="slide-15">
+    <div class="container">
+      <div class="intro">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-lower">falta poco!</span>
+          </h2>
+          <!--<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/roca3.png" alt="">-->
+          <p class="mb-3">
+            Muy Bien, <span class="nombre-caminante"></span>.   Como ya te habrás dado cuenta,
+            recorrimos el Colegio de Charterhouse, <br/>
+            la India, Sudáfrica y la Isla de Brownsea.<br/>
+            Todos estos lugares fueron significativos <br/>
+            dentro de la vida de  BP.
+          </p>
+          <div class="intro-button mx-auto">
+            <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-16')">Seguir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="page-section clearfix" id="slide-16">
+    <div class="container">
+      <div class="intro">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <p class="mb-3">
+            Para encontrar la última Piedra, vamos a trasladarnos<br/>
+            al lugar que él consideró su último hogar, en Nyeri, Kenia.<br/>
+            Cómo se llamó su último hogar? La respuesta la vas a encontrar <br/>
+            si prestas atención a este video.
+          </p>
+          <iframe width="695" height="391" src="https://www.youtube.com/embed/eh0R1H071AI"
+                  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+          <form onsubmit="return validateHogar(event)" class="p-5">
+            <input type="text" class="form-control" placeholder="cual fue el ultimo hogar de BP?" name="hogar" id="hogar"/>
+            <div class="intro-button mx-auto mt-1">
+              <a class="btn btn-primary btn-xl" onclick="validateHogar()">Ok</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section clearfix" id="slide-17">
+    <div class="container">
+      <div class="intro">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-lower">OK!</span>
+          </h2>
+          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/roca%20crista.jpg" alt="">
+          <p class="mb-3">
+            Excelente, <span class="nombre-caminante"></span>
+            Con esto, obtuviste la quinta y última piedra. A continuación, comienza tu Raid de Descubrimiento
+          </p>
+          <div class="intro-button mx-auto">
+            <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-19')">Seguir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section clearfix" id="slide-19">
+    <div class="container">
+      <div class="intro">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+
+          <p class="mb-3">
+            Llegaste a tu lugar de acampe, ahora llega el tiempo de la reflexión...
+          </p>
+          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/chinwenwencha.png" alt="">
+          <div class="intro-button mx-auto">
+            <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-20')">Seguir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section cta" id="slide-20">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="cta-inner text-center rounded">
+            <p class="mb-0">
+              Teobaldo es un reconocido profesor de filosofía en la Universidad Nacional. Un día, delante de sus alumnos, sin decir palabras, saco de debajo de su escritorio un frasco grande de boca ancha. Lo colocó sobre la mesa, junto a una bandeja con piedras del tamaño de un puño y preguntó:
+
+              - ¿Cuántas piedras piensan que caben en el frasco?
+
+              Después de que los asistentes hicieron sus conjeturas, comenzaron a meter piedras hasta que llenó el frasco. Luego preguntó:
+
+              -¿Está lleno?
+
+              Todo el mundo lo miró y asintió. Entonces, sacó de debajo de la mesa un recipiente con piedras más pequeñas. Metió parte de ellos en el frasco y lo agitó. Las piedritas entraron por los espacios que dejaban las piedras grandes. El filósofo sonrió con ironía y repitió:
+
+              - ¿ Está lleno?
+
+              Esta vez, los oyentes dudaron:
+
+              - Tal vez, no.
+
+              - ¡Bien!
+
+              En ese momento, tomó una caja arena y comenzó a volcarla en el frasco. La arena se filtraba entre los pequeños espacios que dejaban las piedras y las piedras pequeñas, hasta colmar el envase.
+              - ¿Está lleno? preguntó nuevamente.
+
+              ¡Si! – respondieron unánimemente los estudiantes.
+
+              Entonces Teobaldo, frente a la mirada sorprendida de sus alumnos, tomo una jarra de agua y vertió su contenido dentro del frasco que, efectivamente, quedó lleno.
+
+              En esta ocasión, los estudiantes, sonrieron. Cuando la risa se apagaba, el profesor preguntó:
+
+              -¿Qué hemos demostrado?
+
+              Un alumno respondió:
+
+              -Que no importa lo llena que esté tu agenda, si lo intentas, siempre puedes hacer que quepan más cosas.
+
+              ¡No…!- concluyó el filósofo-.Este frasco representa la vida. Lo que esta lección nos enseña es que hay que colocar las piedras grandes e importantes primero, el resto encontrará su lugar...
+            </p>
+            <div class="intro-button mx-auto">
+              <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-21')">Seguir</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section cta" id="slide-21">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="cta-inner text-center rounded">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-lower">REFLEXIÓN PERSONAL</span>
+            </h2>
+            <p class="mb-0">
+              ¿Cuáles son las piedras grandes en nuestra vida?
+
+              Son las cosas verdaderamente importantes aquellas que, si todo lo demás se perdiera y sólo éstas quedaran, nuestra vida aún estaría llena, aún tendría sentido. Prestemos atención a las cosas que son cruciales; establezcamos nuestras prioridades, lo demás se acomodará solo.
+
+              Si gastamos todo nuestro tiempo y energía en cosas que no nos llenan, nunca tendremos lugar para las cosas realmente importantes.
+
+              En esta historia, todo se acomoda naturalmente. En la vida no siempre podemos o queremos elegir con criterios tan claros. Acomodar, ajustar, modificar, volver a sacar, reubicar... ¿no serán procedimientos necesarios en este rompecabezas que es vivir?
+
+              Cada una de las partes tiene su lugar en un momento determinado y forma parte de una circunstancia concreta. Nunca nuestro frasco estará totalmente lleno, siempre habrá ocasión para desechar y volver a construir, de hacer lugar para algo o alguien más, ésta es parte, nuestra tarea de ser humanos.
+            </p>
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/paisaje.jpeg" alt="">
+            <div class="intro-button mx-auto">
+              <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-22')">Seguir</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section cta" id="slide-22">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="cta-inner text-center rounded">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-lower">PARA COMPARTIR</span>
+            </h2>
+            <p class="mb-0">
+              1) ¿Qué representan, en el frasco de la vida, las piedras, las piedras pequeñas, la arena y el agua? Realizar una lista propia.
+
+              2) ¿Qué parte ocupa en nuestra vida cada material de esa lista?
+
+              3) ¿Qué criterios o valores tomamos para darle a cada cosa su lugar? ¿Importancia, utilidad, urgencia, tiempo? ¿Puede haber otros criterios?
+
+              4) ¿Qué quisiéramos que ocupe preferentemente todo nuestro frasco-vida? ¿Qué haríamos para lograrlo?
+
+              5) En este momento de nuestras vidas. ¿Es preciso reubicar o quitar algo, para dar lugar a lo verdaderamente importante? ¿Cómo lo haríamos?
+            </p>
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/puente.jpeg" alt="">
+            <div class="intro-button mx-auto">
+              <a class="btn btn-primary btn-xl" href="#" onclick="alert('Esperamos que te haya gustado!!')">Terminar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

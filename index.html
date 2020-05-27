@@ -52,6 +52,7 @@
         return false;
     }
 
+    failedMoons = 0;
     function validateLunas() {
         if ($("#lunas").val().length < 1){
             alert("escribí cuantas lunas encontraste, pajarón/a")
@@ -60,7 +61,12 @@
             if (lunas == 6) {
                 goto("slide-3")
             } else {
-                goto("slide-4")
+                if (failedMoons < 2) {
+                    goto("slide-4")
+                } else {
+                    goto("slide-45")
+                }
+                failedMoons++;
             }
         }
         return false;
@@ -303,6 +309,29 @@
     </div>
   </section>
 
+  <section class="page-section cta" id="slide-45">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="cta-inner text-center rounded">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-lower">Le erraste!</span>
+            </h2>
+            <p >No, esa no es la respuesta, observá bien!.</p>
+            <p>Una pista más, mirá los escudos</p>
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/escudo1.png" alt="">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/escudo2.png" alt="">
+
+            <div class="intro-button mx-auto mt-1">
+              <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-2')">Ok!</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="page-section clearfix" id="slide-5">
     <div class="container">
       <div class="intro">
@@ -455,7 +484,7 @@
             Seguimos viajando... En este caso a una Isla muy especial.<br/>
             Así que vamos a volver a trasladarnos virtualmente.<br/>
             <b>Primero que nada, tenés que encontrar cuántas banderas hay izadas en el mastil.</b><br/>
-            Para eso, tenes que IR A LA ISLA, y dirigirte por el camino hacia el OESTE
+            Para eso, tenes que dirigirte por el camino hacia el OESTE
           </p>
           <iframe id="street-view-brownsea"
                   src="https://www.google.com/maps/embed?pb=!4v1590541272592!6m8!1m7!1s6nFpOX_7i8wQJHVVTGCQiQ!2m2!1d50.6886338742671!2d-1.978004768613118!3f223.94518381926815!4f-8.049945090437944!5f0.7820865974627469"

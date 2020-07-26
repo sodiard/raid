@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Grayscale - Start Bootstrap Theme</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    <script>
+        var nombre= "Caminante"
+        $(document).ready(function () {
+            $(".page-section").hide();
+            $(".page-section").first().show();
+            if (screen.width > 600) {
+                $("#street-view-charter").attr("width", 600);
+                $("#street-view-brownsea").attr("width", 600);
+                $("#kenya").attr("width", 600);
+            }
+        })
+
+        function goto(id) {
+            // $(".page-section").hide("slow")
+            $("#video").get(0).pause();
+            $("#fueguitos").get(0).pause();
+            $(".page-section").fadeOut().promise().then(function () {
+                $("#"+id).fadeIn();
+            });
+            // $(".page-section").fadeOut(400, function () {
+            //     $("#"+id).delay(500).fadeIn();
+            // });
+            $("#"+id+" input").focus()
+            if (id == "page-10") {
+                $("#caja-brisa").animate({opacity: "100%"}, 5000);
+            } else {
+                $("#caja-brisa").animate({opacity: "0%"}, 100);
+            }
+
+        }
+
+    </script>
+    <style>
+        .page-section {
+            display: none;
+        }
+    </style>
+</head>
+<body id="page-top">
+
+<section class="page-section" style="display: block !important;" id="page-0">
+    <header class="masthead ">
+        <div class="container d-flex h-100 align-items-center">
+            <div class="mx-auto text-center">
+                <h1 class="mx-auto my-0 text-uppercase">Brisa!</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">Te invitamos a participar de tu raid virtual de desafío.</h2>
+                <a class="btn btn-primary js-scroll-trigger" href="#about" onclick="goto('page-1')">Empezar</a>
+            </div>
+        </div>
+    </header>
+</section>
+
+<!-- Propuesta-->
+<section class="about-section page-section text-center" id="page-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="text-white mb-4">Bienvenida</h2>
+                <p class="text-white-50">
+                    Nos gustaría que este raid virtual te sirva como momento de reflexión e introspección.
+                    Por eso, te pedimos que busques un lugar donde estés sola y tranquila, con la menor cantidad de distracciones.
+                </p>
+                <br/>
+                <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-0')">Volver</a>
+                <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-2')">Seguir</a>
+            </div>
+        </div>
+        <img class="img-fluid" src="assets/img/stock/harbor.jpg" alt="" />
+    </div>
+</section>
+
+<!-- Video-->
+<section class="about-section page-section text-center" id="page-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="text-white mb-4">El bambú del emperador</h2>
+                <p class="text-white-50">
+                    <video id='video' width="320" height="240" controls>
+                        <source src="assets/img/stock/cut.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                <br/>
+                <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-1')">Volver</a>
+                <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-3')">Seguir</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pagina fondo blanco-->
+<section class="projects-section page-section bg-light" id="page-3">
+    <div class="container">
+        <!-- Featured Project Row-->
+        <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+            <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/stock/china.jpg" alt="" /></div>
+            <div class="col-xl-4 col-lg-5">
+                <div class="featured-text text-center text-lg-left">
+                    <h4>CRECIMIENTO INTERIOR</h4>
+                    <p class="text-black-50 mb-0">
+                        Este cuento es una reflexión al crecimiento personal. El camino de crecimiento personal
+                        no siempre es visible exteriormente y puede hacernos dudar de llegar a conseguir lo que buscamos.
+                        Confiar en la sabiduría de gente con experiencia crea esperanza para saber esperar a obtener resultados.
+                        Contar cuentos es un arte milenario.
+                    </p>
+                    <br/>
+                    <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-2')">Volver</a>
+                    <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-4')">Seguir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Video-->
+<section class="about-section page-section text-center" id="page-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="text-white mb-4">Un mar de fueguitos</h2>
+                <p class="text-white-50">
+                    <video id='fueguitos' width="320" height="240" controls>
+                        <source src="assets/img/stock/fueguitos.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                <br/>
+                <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-3')">Volver</a>
+                <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-5')">Seguir</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pagina-->
+<section class="projects-section page-section bg-light" id="page-5">
+    <div class="container">
+        <!-- Featured Project Row-->
+        <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+            <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpg" alt="" /></div>
+            <div class="col-xl-4 col-lg-5">
+                <div class="featured-text text-center text-lg-left">
+                    <h4>TRANSFORMARSE</h4>
+                    <p class="text-black-50 mb-0">
+                        Los cuentos son para niños y también para ese niño que aún vive en todos los adultos.
+                        Escuchar un cuento transporta a un viaje interior, un viaje al mundo de los sueños.
+                        Los cuentos están llenos de símbolos que la mente recoge sin darse cuenta.
+                        Cuando te despiertas de ese sueño, surge una transformación.
+                    </p>
+                    <br/>
+                    <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-4')">Volver</a>
+                    <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-6')">Seguir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- caja -->
+<section class="about-section page-section text-center" style="padding-top: 1em" id="page-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="text-white mb-4">La persona de la caja</h2>
+                <p class="text-white-50">
+                    Dentro de esta caja, se encuentra una persona.<br/>
+                    Te propongo que te detengas aquí un momento para contemplar su rostro,
+                    <br/>
+                    <br/>
+                    que cada una de las frases leas y des respuesta con ella.
+                    <br/>
+                    <br/>
+                    Que desde hoy y siempre estés con ella para estar SIEMPRE LISTOS
+                </p>
+                <p style="margin-bottom: 3px">
+                    <img class="img-fluid" src="assets/img/cerrado2.png" style="filter: grayscale(100%); max-width: 62%" alt="" />
+                </p>
+                <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-5')">Volver</a>
+                <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-7')">Seguir</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pagina-->
+<section class="projects-section page-section bg-light" id="page-7">
+    <div class="container">
+        <!-- Project One Row-->
+        <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+            <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-01.jpg" alt="" /></div>
+            <div class="col-lg-6">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-left">
+                            <h4 class="text-white" >La persona que se encuentra en la caja:</h4>
+                            <p class="mb-0 text-white-50">
+                                Es la persona que tiene las respuestas que precisas.
+                            </p>
+                            <br/>
+                            <p class="mb-0 text-white-50">
+                                Es la persona que te guiará a un gran desafío.
+                            </p>
+                            <br/>
+                            <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-6')">Volver</a>
+                            <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-8')">Seguir</a>
+                            <hr class="d-none d-lg-block mb-0 ml-0" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Pagina-->
+<section class="projects-section page-section bg-light" id="page-8">
+    <div class="container">
+        <!-- Project Two Row-->
+        <div class="row justify-content-center no-gutters">
+            <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="" /></div>
+            <div class="col-lg-6 order-lg-first">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-right">
+                            <h4 class="text-white" >La persona que se encuentra en la caja:</h4>
+                            <p class="mb-0 text-white-50">
+                                Es la persona que te dirá cual de las leyes estas cumpliendo.
+                            </p>
+                            <br/>
+                            <p class="mb-0 text-white-50">
+                                Es la persona que te acompañará en la ruta a seguir,
+                            </p>
+                            <br/>
+                            <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-7')">Volver</a>
+                            <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-9')">Seguir</a>
+                            <hr class="d-none d-lg-block mb-0 mr-0" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="projects-section page-section bg-light" id="page-9">
+    <div class="container">
+        <!-- Featured Project Row-->
+        <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+            <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/stock/road.jpg" alt="" /></div>
+            <div class="col-xl-4 col-lg-5">
+                <div class="featured-text text-center text-lg-left">
+                    <h4>La persona que se encuentra en la caja:</h4>
+                    <p class="text-black-50 mb-0">
+                        Ella estará con tus mas intimos deseos.
+                        y será capaz de discernir cuál es el camino correcto para vos.
+                    </p>
+                    <br/>
+                    <p class="text-black-50 mb-0">
+                        Es la persona que debes alimentar, hacer crecer, cuidar, acompañar,
+                        en el camino de felicidad que elegiste a este gran juego,
+                    </p>
+                    <br/>
+                    <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-8')">Volver</a>
+                    <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-10')">Seguir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="projects-section page-section bg-light" id="page-10">
+    <div class="container">
+        <!-- Featured Project Row-->
+        <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+            <div class="col-xl-8 col-lg-7">
+                <p style="text-align: center; margin-bottom: 0px">
+                    <img id="caja-brisa"
+                            class="img-fluid mb-3 mb-lg-0 "
+                         style="filter: grayscale(1) ; opacity: 0%; max-width: 64%"
+                         src="assets/img/caja-brisa.png" alt=""/>
+                </p>
+            </div>
+
+            <div class="col-xl-4 col-lg-5">
+            <div class="featured-text text-center text-lg-left">
+                    <h4>La persona que se encuentra aquí en esta caja:</h4>
+                    <p class="text-black-50 mb-0">
+                        Es la persona que te ayudará a constriur un mundo mejor cada día y recoger tu cosecha
+                    </p>
+                    <br/>
+                    <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-9')">Volver</a>
+                    <a class="btn btn-outline-dark js-scroll-trigger" href="#about" onclick="goto('page-11')">Seguir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section" id="page-11">
+    <header class="masthead" style="padding-bottom: 3em">
+        <div class="container d-flex h-100 align-items-center">
+            <div class="mx-auto text-center">
+                <h1 class="mx-auto my-0 text-uppercase">Fin!
+                    <br/>
+                    <br/>
+                    <br/>
+                </h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">
+                    Esperamos que te haya gustado.
+                    <br/>
+                    <br/>
+                    Te queremos mucho,
+                    <br/>
+                    <br/>
+                    Tus dirigentes
+                    <br/>
+                </h2>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">
+                    No es mas que un hasta luego, no es mas que un breve adiós, muy pronoto junto al fuego nos reuniremos
+                </h2>
+
+            </div>
+        </div>
+    </header>
+</section>
+
+</body>
+</html>

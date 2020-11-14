@@ -138,7 +138,7 @@
 
     function validateHogar() {
         if ($("#hogar").val().length < 1){
-            alert("escribí cual fue el nombre del último hogar de BO")
+            alert("escribí cual fue el nombre del último hogar de BP")
         } else {
             if ($("#hogar").val().trim().toUpperCase().indexOf("PAXTU") > -1) {
                 console.log("contains paxtu");
@@ -354,8 +354,8 @@
   <section class="page-section clearfix" id="slide-6">
     <div class="container">
       <div class="intro">
-        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/mapa-túneles.jpg" alt="">
         <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/mapa-túneles.jpg" alt="">
           <p class="mb-3">  Muy bien, para sacar la segunda roca de la India, tenés que resolver el laberinto.
 
             Pero no de cualquier manera... Tenés que recorrerlo de manera de llegar a la salida pasando por el menor número posible.
@@ -441,8 +441,8 @@
           <p class="mb-3">
             <span>Ok, vamos a cambiar de continente... en qué país estarías si estuvieras a mitad de camino entre <a href="https://es.wikipedia.org/wiki/Keetmanshoop" rel="noopener noreferrer" target="_blank">Keetmanshoop</a> y <a href="https://es.wikipedia.org/wiki/Maseru" rel="noopener noreferrer" target="_blank">Maseru</a>?</span>
           </p>
-          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/leon.jpg" alt="">
-          <div class="intro-button mx-auto">
+          <img class="img-fluid mb-3 mb-lg-0 rounded" src="img/raid/leon.jpg" alt="">
+          <div class="mx-auto">
             <a class="btn btn-primary btn-xl col-xs-1 col-md-4 mb-1" href="#" onclick="failTrip()">Congo</a>
             <a class="btn btn-primary btn-xl col-xs-1 col-md-4 mb-1" href="#" onclick="failTrip()">Namibia</a>
             <a class="btn btn-primary btn-xl col-xs-1 col-md-4 mb-1" href="#" onclick="failTrip()">Lesoto</a>
@@ -478,7 +478,8 @@
 
   <section class="page-section clearfix" id="slide-12">
     <div class="container">
-      <div class="intro">
+      <div class="">
+      <!--<div class="intro">-->
         <div class="intro-text left-0 text-center bg-faded p-5 rounded">
           <p class="mb-3">
             Seguimos viajando... En este caso a una Isla muy especial.<br/>
@@ -568,7 +569,8 @@
 
   <section class="page-section clearfix" id="slide-16">
     <div class="container">
-      <div class="intro">
+      <div class="">
+      <!--<div class="intro">-->
         <div class="intro-text left-0 text-center bg-faded p-5 rounded">
           <p class="mb-3">
             Para encontrar la última Piedra, vamos a trasladarnos<br/>
@@ -748,13 +750,39 @@
             <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/raid/puente.jpeg" alt="">
             <div class="intro-button mx-auto">
               <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-21')">Volver</a>
-              <a class="btn btn-primary btn-xl" href="#" onclick="alert('Esperamos que te haya gustado!! Ahora, comunicate con Claudia')">Terminar</a>
+              <a class="btn btn-primary btn-xl" href="#" onclick="goto('slide-23')">Terminar</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <section class="page-section cta" id="slide-23">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="cta-inner text-center rounded">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-lower">PARA TERMINAR</span>
+            </h2>
+            <p class="mb-0">
+              <p>
+                Te dejamos este regalito de tu familia... Cuando termines de disfrutarlo, comunicate con los diris...
+                <br/>
+                <video controls>
+                  <source src="img/raid/tad6.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
